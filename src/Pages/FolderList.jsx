@@ -20,7 +20,7 @@ const FolderList = ({ parentId = null }) => {
     }
 
     try {
-      const response = await axios.get("http://localhost:3000/get-folders", {
+      const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/get-folders`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       });
@@ -47,7 +47,7 @@ const FolderList = ({ parentId = null }) => {
 
   const handleDeleteFolder = async (folderId) => {
     try {
-      const response = await axios.get(`http://localhost:3000/delete-folder/${folderId}`, {
+      const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/delete-folder/${folderId}`, {
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
       });

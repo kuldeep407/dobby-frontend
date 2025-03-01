@@ -49,7 +49,7 @@ const ImageList = ({ folderId }) => {
 
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3000/search-image", {
+      const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/search-image`, {
         params: { query },
         headers: { Authorization: `Bearer ${token}` },
       });

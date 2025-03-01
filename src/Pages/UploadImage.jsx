@@ -9,7 +9,8 @@ const UploadImage = ({ folderId, refreshImages }) => {
   const token = localStorage.getItem("token");
 
   const handleUpload = async () => {
-    if (!image || !imageName) return toast.error("Enter image name and select an image");
+    if (!image || !imageName)
+      return toast.error("Enter image name and select an image");
     if (!token) return toast.error("You must be logged in to upload images");
 
     setLoading(true);
@@ -19,12 +20,16 @@ const UploadImage = ({ folderId, refreshImages }) => {
     formData.append("folderId", folderId);
 
     try {
-      await axios.post("http://localhost:3000/upload-image", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/upload-image`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       toast.success("Image uploaded successfully!");
       setImage(null);
       setImageName("");

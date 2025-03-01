@@ -21,7 +21,7 @@ const CreateFolder = ({ parentId, onFolderCreated }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/create-folder",
+        `${import.meta.env.VITE_APP_BACKEND_URL}/create-folder`,
         { name: folderName, parentId },
         {
           headers: { Authorization: `Bearer ${token}` },

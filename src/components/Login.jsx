@@ -12,10 +12,12 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/user-login",
+        `${import.meta.env.VITE_APP_BACKEND_URL}/user-login`,
         { email, password },
         { withCredentials: true }
       );
+
+      console.log("Backend URL:", import.meta.env.VITE_APP_BACKEND_URL);
 
       if (response.data.success) {
         toast.success(response.data.message);

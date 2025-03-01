@@ -13,7 +13,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:3000/user-signup";
+      const url = `${import.meta.env.VITE_APP_BACKEND_URL}/user-signup`;
       const response = await axios.post(
         url,
         { name, email, password },
