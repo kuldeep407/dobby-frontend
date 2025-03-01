@@ -61,7 +61,7 @@ const ImageList = ({ folderId }) => {
       }
     } catch (error) {
       console.error("Error searching images:", error);
-      toast.error("Failed to search images.");
+      // toast.error("Failed to search images.");
     } finally {
       setLoading(false);
     }
