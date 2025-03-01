@@ -5,7 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import CreateFolder from "./CreateFolder";
 import UploadImage from "./UploadImage";
-import ImageList from "./imageList";
+import ImageList from "./ImageList";
 
 const FolderList = ({ parentId = null }) => {
   const [folders, setFolders] = useState([]);
