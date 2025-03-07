@@ -29,7 +29,7 @@ const ImageList = ({ folderId }) => {
         setImages([]);
       }
     } catch (error) {
-      console.error("Error fetching images:", error);
+      console.error(error);
       toast.error("Failed to fetch images.");
     } finally {
       setLoading(false);
@@ -103,7 +103,7 @@ const ImageList = ({ folderId }) => {
                 {img.name}
               </p>
               <img
-                src={`http://localhost:3000${img.imageUrl}`}
+                src={`${import.meta.env.VITE_APP_BACKEND_URL}${img.imageUrl}`}
                 alt={img.name}
                 className="w-full h-50 object-fit rounded-sm"
               />
