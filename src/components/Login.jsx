@@ -17,7 +17,7 @@ export default function Login() {
         { withCredentials: true }
       );
 
-      console.log("Backend URL:", import.meta.env.VITE_APP_BACKEND_URL);
+      console.log(import.meta.env.VITE_APP_BACKEND_URL);
 
       if (response.data.success) {
         toast.success(response.data.message);

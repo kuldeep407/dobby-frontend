@@ -16,7 +16,7 @@ const ImageList = ({ folderId }) => {
 
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:3000/get-images", {
+      const response = await axios.get(`${import.meta.env.VITE_APP_BACKEND_URL}/get-images`, {
         params: { folderId },
         headers: { Authorization: `Bearer ${token}` },
         withCredentials: true,
@@ -25,7 +25,7 @@ const ImageList = ({ folderId }) => {
       if (response.data.success && Array.isArray(response.data.images)) {
         setImages(response.data.images);
       } else {
-        console.error("Unexpected API response:", response.data);
+        console.error(response.data);
         setImages([]);
       }
     } catch (error) {
